@@ -15,7 +15,7 @@
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "serve-debug": "nodemon --inspect=9222 dist/server.js | ./node_modules/.bin/bunyan",
     "serve": "node dist/server.js",
-    "start": "yarn serve | ./node_modules/.bin/bunyan",
+    "start": "yarn build && yarn serve | ./node_modules/.bin/bunyan",
     "test:watch": "cross-env NODE_ICU_DATA=./node_modules/full-icu NODE_ENV=test jest --watch",
     "test": "cross-env NODE_ICU_DATA=./node_modules/full-icu NODE_ENV=development jest --coverage && yarn clean",
     "watch-debug": "tsc-watch --onSuccess \"yarn serve-debug\"",

@@ -1,13 +1,18 @@
 import Router from '@koa/router';
+import { isEmpty } from 'lodash';
 import { log } from '../utils/log';
 
 export const router = new Router();
 
 export const checkCredentials = (username: string, password: string) => {
-  return !username && !password;
+  return !isEmpty(username) && !isEmpty(password);
 };
 
-router.post('/', async ctx => {
+router.get('/get', async ctx => {
+  ctx.status = 200;
+});
+
+router.post('/post', async ctx => {
   const { username, password } = ctx.request.body;
 
   if (!checkCredentials(username, password)) {
@@ -19,5 +24,8 @@ router.post('/', async ctx => {
   log.info('Username:', username);
   log.info('Password:', password);
 
+  const result = `You provided ${JSON.stringify({ username, password })}`;
+
+  ctx.body = result;
   ctx.status = 200;
 });

@@ -6,10 +6,10 @@ import { promisify } from 'util';
 const { host, port } = config.get('service');
 
 (async () => {
-  const server = app.listen(8080, 'localhost');
+  const server = app.listen(port, host);
 
   log.info(
-    `\nApp is running at ${host}:${port} in ${process.env.NODE_ENV} mode`
+    `\nApp is running at http://${host}:${port} in ${process.env.NODE_ENV} mode`
   );
 
   process.on('SIGTERM', async () => {
