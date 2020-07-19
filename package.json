@@ -38,7 +38,7 @@
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.4.0",
     "koa": "^2.11.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "promisify": "^0.0.3"
   },
   "devDependencies": {
